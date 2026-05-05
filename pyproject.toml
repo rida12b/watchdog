@@ -1,0 +1,39 @@
+[project]
+  name = "watchdog_ai"
+  version = "0.1.0"
+  description = "AI Agent Production Watchdog — multi-agent system that monitors, investigates, and mitigates anomalies in production AI agents."
+  authors = [
+      { name = "Rida Boualam" },
+  ]
+  requires-python = ">=3.13,<4.0"
+  license = { text = "Proprietary" }
+  readme = "README.md"
+
+dependencies = [
+    "fastapi>=0.115.0,<1.0.0",
+    "pydantic>=2.10.0,<3.0.0",
+    "uvicorn[standard]>=0.32.0,<1.0.0",
+]
+[project.optional-dependencies]
+dev = [
+    "pyright>=1.1.380,<2.0.0",
+    "ruff>=0.7.0,<1.0.0",
+]
+[build-system]
+requires = ["setuptools>=75.0.0,<80.0.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.pyright]
+include = ["watchdog_ai"]
+pythonVersion = "3.13"
+typeCheckingMode = "strict"
+
+[tool.ruff]
+line-length = 100
+target-version = "py313"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+
+[tool.ruff.format]
+quote-style = "double"
